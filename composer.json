@@ -1,0 +1,78 @@
+{
+    "name": "marketgoogle/location-picker",
+    "type": "wordpress-plugin",
+    "description": "A comprehensive WordPress plugin for business location registration and management with online payment capabilities",
+    "keywords": ["wordpress", "plugin", "location", "map", "payment", "business", "openstreetmap", "persian"],
+    "homepage": "https://marketgoogle.com",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "MarketGoogle Team",
+            "email": "support@marketgoogle.com",
+            "homepage": "https://marketgoogle.com"
+        }
+    ],
+    "support": {
+        "email": "support@marketgoogle.com",
+        "docs": "https://docs.marketgoogle.com",
+        "issues": "https://github.com/marketgoogle/location-picker/issues"
+    },
+    "require": {
+        "php": ">=7.4",
+        "composer/installers": "^1.0 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "wp-coding-standards/wpcs": "^2.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "roave/security-advisories": "dev-latest"
+    },
+    "suggest": {
+        "wpackagist-plugin/gravity-forms": "For advanced form integration",
+        "wpackagist-plugin/woocommerce": "For e-commerce integration"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarketGoogle\\LocationPicker\\": "includes/"
+        },
+        "files": [
+            "includes/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MarketGoogle\\LocationPicker\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "cs": "phpcs --standard=WordPress --extensions=php --ignore=*/vendor/*,*/node_modules/* .",
+        "cbf": "phpcbf --standard=WordPress --extensions=php --ignore=*/vendor/*,*/node_modules/* .",
+        "analyse": "phpstan analyse --level=5 includes/",
+        "post-install-cmd": [
+            "@cs"
+        ],
+        "post-update-cmd": [
+            "@cs"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "installer-name": "market-google-location",
+        "wordpress-plugin-slug": "market-google-location"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+} 
