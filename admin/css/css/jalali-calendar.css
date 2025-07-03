@@ -1,0 +1,165 @@
+/* استایل تقویم جلالی - نسخه بهبود یافته */
+.jalali-datepicker-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.jalali-calendar-popup {
+    font-family: 'Vazir', 'Tahoma', sans-serif;
+    direction: rtl;
+    text-align: right;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: none;
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.jalali-calendar-popup * {
+    box-sizing: border-box;
+}
+
+/* استایل input برای هماهنگی با فیلترهای سایت */
+.jalali-datepicker-wrapper input {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Vazir', 'Tahoma', sans-serif;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    color: #333;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.jalali-datepicker-wrapper input:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+.jalali-datepicker-wrapper input:hover {
+    border-color: #0073aa;
+}
+
+/* استایل placeholder */
+.jalali-datepicker-wrapper input::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* انیمیشن برای popup - بهبود یافته */
+.jalali-calendar-popup {
+    animation: calendarSlideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: top center;
+}
+
+@keyframes calendarSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* استایل برای حالت fade out */
+.jalali-calendar-popup.closing {
+    animation: calendarSlideOut 0.2s ease-in-out;
+}
+
+@keyframes calendarSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+}
+
+/* بهبود استایل انتخابگرهای سال و ماه */
+.jalali-calendar-popup select {
+    font-family: 'Vazir', 'Tahoma', sans-serif;
+    direction: rtl;
+}
+
+.jalali-calendar-popup select:focus {
+    outline: 2px solid rgba(255,255,255,0.5);
+    outline-offset: 1px;
+}
+
+/* استایل responsive بهبود یافته */
+@media (max-width: 768px) {
+    .jalali-calendar-popup {
+        position: fixed;
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -50%);
+        max-width: 95vw;
+        width: 320px;
+    }
+    
+    .jalali-datepicker-wrapper input {
+        font-size: 16px; /* جلوگیری از zoom در iOS */
+    }
+}
+
+@media (max-width: 480px) {
+    .jalali-calendar-popup {
+        width: 300px;
+        max-width: 90vw;
+    }
+}
+
+/* استایل برای حالت disabled */
+.jalali-datepicker-wrapper input:disabled {
+    background-color: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+    border-color: #ddd;
+}
+
+.jalali-datepicker-wrapper input:disabled:hover {
+    border-color: #ddd;
+}
+
+/* استایل برای حالت خطا */
+.jalali-datepicker-wrapper.error input {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 1px rgba(220, 53, 69, 0.25);
+}
+
+.jalali-datepicker-wrapper.error input:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+/* اضافه کردن آیکون تقویم */
+.jalali-datepicker-wrapper {
+    position: relative;
+}
+
+.jalali-datepicker-wrapper::after {
+    content: "📅";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+/* اگر input دارای مقدار باشد، آیکون کمرنگ‌تر شود */
+.jalali-datepicker-wrapper input:not(:placeholder-shown) + *::after,
+.jalali-datepicker-wrapper input[value]:not([value=""])::after {
+    opacity: 0.4;
+}
