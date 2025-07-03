@@ -1,0 +1,1644 @@
+/* فونت Vazir برای صفحه لیست سفارشات */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+/* ریست و تنظیمات کلی */
+.orders-list-wrap,
+.orders-list-wrap *,
+.orders-table,
+.orders-table *,
+.orders-filters,
+.orders-filters *,
+.orders-search-form,
+.orders-search-form * {
+    font-family: 'Vazir', 'Segoe UI', Tahoma, Arial, sans-serif !important;
+    direction: rtl;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.orders-list-wrap h1 {
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* فیلترها - طراحی مینیمال */
+.orders-filters {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.filter-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 13px;
+}
+
+.filter-group select,
+.filter-group input[type="date"],
+.filter-group input[type="text"].jalali-datepicker {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background: white;
+    transition: border-color 0.2s;
+    width: 100%;
+    font-family: 'Vazir', 'Segoe UI', Tahoma, Arial, sans-serif !important;
+    direction: rtl;
+    text-align: right;
+    height: 100%;
+}
+
+.filter-group select:focus,
+.filter-group input[type="date"]:focus,
+.filter-group input[type="text"].jalali-datepicker:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 0 1px rgba(0, 124, 186, 0.3);
+}
+
+/* هماهنگی فیلدهای تقویم جلالی با سایر فیلترها */
+.filter-group .jalali-datepicker-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.filter-group .jalali-datepicker-wrapper input {
+    height: auto;
+    line-height: normal;
+}
+
+/* استایل خاص برای فیلدهای تاریخ در فیلترها */
+.filter-group input[type="date"],
+.filter-group .jalali-datepicker {
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-group input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.filter-group input[type="date"]:hover::-webkit-calendar-picker-indicator {
+    opacity: 0.8;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.search-row input[type="search"] {
+    flex: 1;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+}
+
+.search-row input[type="search"]:focus {
+    outline: none;
+    border-color: #007cba;
+}
+
+.search-row .button {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-row .button-primary {
+    background: #007cba;
+    color: white;
+}
+
+.search-row .button-primary:hover {
+    background: #005a87;
+}
+
+.search-row .button:not(.button-primary) {
+    background: #666;
+    color: white;
+}
+
+.search-row .button:not(.button-primary):hover {
+    background: #555;
+}
+
+/* جدول سفارشات - طراحی مینیمال */
+.orders-table-container {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.orders-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    table-layout: fixed !important;
+}
+
+.orders-table th {
+    background: #f5f5f5;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 10px;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+}
+
+.orders-table td {
+    padding: 12px 10px;
+    font-size: 13px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.orders-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.orders-table tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+/* ستون‌های خاص */
+.column-order-number { width: 6% !important; min-width: 70px !important; }
+.column-full-name { width: 11% !important; min-width: 110px !important; }
+.column-mobile { width: 8% !important; min-width: 80px !important; }
+.column-business-phone { width: 9% !important; min-width: 90px !important; }
+.column-business-name { width: 15% !important; min-width: 150px !important; }
+.column-coordinates { width: 6% !important; min-width: 60px !important; }
+.column-payment-amount { width: 8% !important; min-width: 80px !important; }
+.column-order-status { width: 7% !important; min-width: 70px !important; }
+.column-payment-status { width: 7% !important; min-width: 70px !important; }
+.column-payment-date { width: 9% !important; min-width: 80px !important; }
+.column-actions { width: 14% !important; min-width: 120px !important; }
+
+/* شماره سفارش */
+.order-number {
+    font-weight: 600;
+    color: #007cba !important;
+    direction: ltr;
+}
+
+/* حذف تیک از شماره سفارش */
+.order-number .dashicons {
+    display: none !important;
+}
+
+/* نام کسب و کار */
+.business-name strong {
+    color: #333;
+    font-weight: 500;
+}
+
+button.button.button-small.copy-coordinates {
+    display: inline-flex;
+}
+
+/* دکمه کپی مختصات */
+.copy-coordinates {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white !important;
+    border: none;
+    text-decoration: none !important;
+    font-style: normal !important;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background: #2271b1 !important;
+}
+
+.copy-coordinates:hover {
+    text-decoration: none !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: #1a64a0 !important;
+}
+
+.copy-coordinates::before {
+    content: "";
+    font-family: dashicons;
+    font-size: 14px;
+    line-height: 1;
+    margin-left: 3px;
+}
+
+/* مبلغ پرداخت */
+.payment-amount {
+    align-content: center;
+    align-items: center;
+}
+
+.payment-amount .amount-number {
+    font-weight: 600;
+    color: #27ae60;
+    font-size: 14px;
+}
+
+.payment-amount .amount-currency {
+    font-size: 11px;
+    color: #888;
+    font-weight: normal;
+}
+
+/* وضعیت پرداخت */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 90% !important;
+    max-width: 90% !important;
+}
+
+.status-badge.payment-pending {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+    min-width: 90% !important;
+    max-width: 90% !important;
+}
+
+.status-badge.payment-success,
+.status-badge.payment-completed {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    min-width: 90% !important;
+    max-width: 90% !important;
+}
+
+.status-badge.payment-failed {
+    background: #fff2e6;
+    color: #cc6600;
+    border: 1px solid #ffddcc;
+    min-width: 90% !important;
+    max-width: 90% !important;
+}
+
+.status-badge.payment-cancelled {
+    background: #f8d7da !important;
+    color: #721c24 !important;
+    border: 1px solid #f1aeb5;
+    min-width: 90% !important;
+    max-width: 90% !important;
+}
+
+/* وضعیت‌های سفارش */
+.status-badge.order-pending {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+    min-width: 90% !important;
+    max-width: 90% !important;
+}
+
+.status-badge.order-completed {
+    background: #a3ffb9 !important;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    min-width: 90% !important;
+    max-width: 90% !important;
+}
+
+.info-group-pay .status-badge {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* شماره تراکنش */
+.transaction-number {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #666;
+    background: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* تاریخ پرداخت */
+.payment-date {
+    font-size: 12px;
+    color: #666;
+}
+
+/* عملیات - Override WordPress defaults */
+.orders-table .row-actions,
+.orders-table tr .row-actions,
+.orders-table tbody tr .row-actions {
+    display: flex !important;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+    right: 0;
+}
+
+/* اطمینان از نمایش همیشگی */
+.orders-table tr:hover .row-actions,
+.orders-table tbody tr:hover .row-actions {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.row-actions a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    text-decoration: none !important;
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.row-actions .view a {
+    background: #17a2b8;
+}
+
+.row-actions .view a:hover {
+    background: #138496;
+}
+
+.row-actions .complete a {
+    background: #28a745;
+}
+
+.row-actions .complete a:hover {
+    background: #218838;
+}
+
+.row-actions .edit a {
+    background: #fbbf24 !important;
+    color: #1f2937 !important;
+}
+
+.row-actions .edit a:hover {
+    background: #f59e0b !important;
+    color: #111827 !important;
+}
+
+.row-actions .delete a {
+    background: #dc3545;
+}
+
+.row-actions .delete a:hover {
+    background: #c82333;
+}
+
+.row-actions .send-info a {
+    background: #6f42c1;
+}
+
+.row-actions .send-info a:hover {
+    background: #533192;
+}
+
+/* آیکون‌های dashicons */
+.row-actions .dashicons {
+    font-size: 16px !important;
+    line-height: 1 !important;
+    color: white !important;
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-family: 'dashicons' !important;
+}
+
+.row-actions .edit a .dashicons {
+    color: #1f2937 !important;
+}
+
+.row-actions a:hover .dashicons {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* پیام عدم وجود آیتم */
+.no-items {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-style: italic;
+    background: #f9f9f9;
+}
+
+/* صفحه‌بندی */
+.orders-pagination {
+    margin-top: 20px;
+    padding: 15px 0;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.tablenav-pages {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    gap: 5px;
+}
+
+.displaying-num {
+    color: #666;
+    font-size: 13px;
+}
+
+.page-numbers {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 0 2px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    font-size: 13px;
+    line-height: 1;
+}
+
+.page-numbers:hover {
+    background: #007cba;
+    color: white;
+    border-color: #007cba;
+}
+
+.page-numbers.current {
+    background: #007cba;
+    color: white;
+    border-color: #007cba;
+}
+
+.page-numbers.dots {
+    border: none;
+    background: none;
+    color: #999;
+}
+
+/* مودال‌ها */
+.orders-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+}
+
+.orders-modal .modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90%;
+    overflow-y: auto;
+    position: relative;
+    direction: rtl;
+    font-family: 'Vazir', 'Segoe UI', Tahoma, Arial, sans-serif !important;
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.modal-close {
+    cursor: pointer;
+    font-size: 24px;
+    color: #999;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 20px 20px;
+    border-top: 1px solid #e0e0e0;
+    background: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    gap: 10px;
+    justify-content: center!important;
+    flex-wrap: wrap;
+}
+
+.modal-footer .button {
+    margin: 0;
+    min-width: 120px;
+    padding: 8px 15px;
+}
+
+.modal-footer .button-primary {
+    background: #2271b1;
+    border-color: #2271b1;
+    padding: 8px 15px;
+}
+
+.modal-footer .button-primary:hover {
+    background: #1e5a96;
+    border-color: #1e5a96;
+}
+
+/* ریسپانسیو */
+@media (max-width: 1200px) {
+    .orders-table-container {
+        overflow-x: auto;
+    }
+    
+    .orders-table {
+        min-width: 1000px;
+    }
+}
+
+@media (max-width: 768px) {
+    .orders-list-wrap {
+        margin: 10px;
+    }
+    
+    .orders-list-wrap h1 {
+        font-size: 20px;
+        padding: 10px 0;
+    }
+    
+    .orders-filters {
+        padding: 15px;
+    }
+    
+    .filter-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .search-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .orders-modal .modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .modal-header {
+        padding: 12px 15px;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .modal-footer {
+        padding: 12px 15px;
+        flex-direction: column;
+    }
+    
+    .tablenav-pages {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    /* جزئیات سفارش در موبایل */
+    .order-info-section {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .info-value {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    .product-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .map-container h3,
+    .order-products-section h3 {
+        font-size: 14px;
+    }
+    
+    #order-map {
+        height: 250px !important;
+    }
+}
+
+/* پیام‌های موفقیت و خطا */
+.notice {
+    margin: 15px 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 14px;
+}
+
+.notice-success {
+    background: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.notice-error {
+    background: #f8d7da;
+    color: #721c24;
+    border-color: #f1aeb5;
+}
+
+.notice-warning {
+    background: #fff3cd;
+    color: #856404;
+    border-color: #ffeaa7;
+}
+
+.notice p {
+    margin: 0;
+}
+
+/* اسکرول بار */
+.orders-table-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.orders-table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.orders-table-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.orders-table-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* تنظیمات اضافی */
+.orders-list-wrap .wp-list-table {
+    border: none;
+    box-shadow: none;
+}
+
+.orders-list-wrap .tablenav {
+    background: transparent;
+    border: none;
+}
+
+/* بهبود نمایش در حالت تاریک */
+/* وضعیت خوانده شده/نشده */
+
+/* دکمه ارسال پیامک اطلاعات */
+.orders-table .actions .row-actions .send-info a {
+    background-color: #6f42c1 !important;
+    color:#fff;
+}
+
+.orders-table .actions .row-actions .send-info a:hover {
+    background: #533192;
+    color: white;
+}
+
+/* استایل سفارشات تکمیل شده */
+.order-completed {
+    background-color: #f1faf6 !important;
+}
+
+/* تیک سبز کنار شماره سفارش */
+.orders-table tr.order-completed .order-number {
+    color: #28a745 !important;
+    font-weight: bold !important;
+    position: relative;
+}
+
+/* حذف تیک بعد از شماره سفارش تکمیل شده */
+.orders-table tr.order-completed .order-number::after {
+    display: none !important;
+}
+
+.orders-table tr.order-completed .completion-info {
+    color: #28a745;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 3px;
+}
+
+/* حذف حالت disabled از دکمه complete-order در سفارشات تکمیل شده */
+
+/* نشانگر ارسال موفق پیامک */
+.orders-table .actions .row-actions .send-info a.sms-sent {
+    color: #10b981 !important;
+    border-color: #10b981 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+}
+
+/* انیمیشن چرخشی برای loading */
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* اضافه کردن انیمیشن به آیکون loading */
+.dashicons.spin-animation {
+    animation: rotation 1s infinite linear;
+    display: inline-block;
+}
+
+/* استایل ویژه دکمه در حالت loading */
+.complete-order.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.complete-order.loading .dashicons {
+    animation: rotation 1s infinite linear;
+}
+
+.orders-table tr.order-unread {
+    background-color: #eeeeee !important;
+    border-right: 3px solid #2ecc71;
+}
+
+.orders-table tr.order-read {
+    background-color: #ffffff;
+}
+
+.orders-table tr.order-unread:hover {
+    background-color: #a2d4ff !important;
+}
+
+.orders-table tr.order-read:hover {
+    background-color: #a2d4ff !important;
+}
+
+/* آیکون toggle read status */
+.row-actions .toggle-read a {
+    background: #f39c12;
+}
+
+.row-actions .toggle-read a:hover {
+    background: #e67e22;
+}
+
+.toggle-read-status .dashicons-star-filled {
+    color: #ffffff;
+}
+
+.toggle-read-status .dashicons-star-empty {
+    color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    .orders-list-wrap {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+    
+    .orders-filters {
+        background: #2d2d2d;
+        border-color: #404040;
+    }
+    
+    .orders-table-container {
+        background: #2d2d2d;
+    }
+    
+    .orders-table td {
+        border-bottom-color: #404040;
+    }
+}
+
+/* === استایل‌های جزئیات سفارش === */
+
+.order-details-container {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Vazir', 'Segoe UI', Tahoma, Arial, sans-serif !important;
+}
+
+.order-info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.info-value {
+    background: #f8f9fa;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+    color: #2d3748;
+    word-break: break-word;
+    transition: all 0.2s ease;
+}
+
+.info-value:hover {
+    background: #e2e8f0;
+}
+
+.info-value.copyable {
+    cursor: pointer;
+    position: relative;
+}
+
+.info-group-pay {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    margin: 10px;
+}
+
+.info-value.copyable:hover {
+    background: #dbeafe;
+    border-color: #3b82f6;
+}
+
+.copyable.empty-field {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+/* فیلدهای خالی */
+.info-value.empty-field {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border-color: rgba(239, 68, 68, 0.2) !important;
+    color: #dc2626 !important;
+}
+
+.info-value.empty-field:hover {
+    background: rgba(239, 68, 68, 0.12) !important;
+}
+
+.status-control {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.status-control select {
+    max-width: 200px;
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 13px;
+    background: white;
+}
+
+.order-products-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.order-products-section h3 {
+    margin: 0 0 15px 0;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.order-products-list {
+    display: grid;
+    gap: 12px;
+}
+
+.product-item {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.product-name {
+    flex: 1;
+    font-weight: 500;
+    color: #374151;
+}
+
+.package-contents {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.package-contents ul {
+    margin: 0;
+    padding-right: 20px;
+    list-style-type: disc;
+}
+
+.package-contents li {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 3px;
+}
+
+.product-quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.quantity-value {
+    background: #3b82f6;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 12px;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* نقشه */
+.map-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.map-container h3 {
+    margin: 0 0 10px 0;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#order-map {
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* وضعیت خواندن */
+.status-badge.read-yes {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.status-badge.read-no {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+/* مبلغ پرداختی موفق */
+.payment-amount-display {
+    font-weight: 500;
+}
+
+.payment-amount-display.payment-success {
+    color: #2e7d32 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    background: linear-gradient(45deg, #f8fff8, #e8f5e8);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #c8e6c9;
+    display: inline-block;
+    text-shadow: 0 1px 2px rgba(46, 125, 50, 0.1);
+}
+
+/* بخش وضعیت‌ها در بالا */
+.order-status-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+/* موقعیت مکانی مشابه محصولات */
+.order-location-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-location-section h3 {
+    margin: 0 0 15px 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #007cba;
+    padding-bottom: 8px;
+}
+
+.order-location-content {
+    position: relative;
+}
+
+/* نقشه با قابلیت زوم */
+#order-map {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* کنترل‌های نقشه */
+.leaflet-control-zoom {
+    margin: 10px !important;
+}
+
+.leaflet-control-zoom a {
+    background-color: #fff !important;
+    color: #333 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: #f5f5f5 !important;
+}
+
+/* بهبود responsive */
+@media (max-width: 768px) {
+    .order-status-section {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    #order-map {
+        height: 250px !important;
+    }
+}
+
+/* کانتینر اصلی جزئیات سفارش */
+.order-details-container {
+    background: white;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.order-Pay-section {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.order-Pay-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #1e293b;
+    font-size: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+/* استایل عمومی بخش‌ها */
+.order-section {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* هدر بخش‌ها */
+.section-header {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 2px solid #007cba;
+    padding-bottom: 8px;
+}
+
+/* محتوای بخش‌ها */
+.section-content {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+/* گرید وضعیت سفارش */
+.status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.status-item {
+    text-align: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+}
+
+.status-item strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 14px;
+}
+
+.payment-status.success {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.payment-status.pending {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.order-status {
+    font-weight: bold;
+    color: #17a2b8;
+}
+
+/* گرید جزئیات سفارش */
+.order-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+}
+
+.detail-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.detail-item strong {
+    color: #333;
+    font-weight: 600;
+    margin-left: 10px;
+    min-width: 120px;
+    flex-shrink: 0;
+}
+
+.detail-item span {
+    flex: 1;
+    text-align: right;
+    word-break: break-word;
+}
+
+/* فیلدهای خالی */
+.empty-field {
+    background-color: rgba(255, 0, 0, 0.1) !important;
+    color: #dc3545;
+    padding: 5px 8px;
+    border-radius: 3px;
+}
+
+/* مبلغ موفق */
+.success-amount {
+    color: #28a745 !important;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* فیلدهای قابل کپی */
+.copyable {
+    cursor: pointer;
+    position: relative;
+}
+
+.copyable:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* محصولات انتخاب شده */
+.selected-products-section {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.selected-products-section h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 2px solid #007cba;
+    padding-bottom: 8px;
+}
+
+.products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.product-name {
+    flex: 1;
+    font-weight: 500;
+    color: #333;
+}
+
+.product-price {
+    color: #007cba;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.no-products {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* موقعیت مکانی - مشابه محصولات */
+.location-section {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.location-section h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 2px solid #007cba;
+    padding-bottom: 8px;
+}
+
+.location-map-container {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#order-map {
+    height: 300px;
+    width: 100%;
+}
+
+.no-location {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* کنترل‌های نقشه */
+.leaflet-control-zoom {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.leaflet-control-zoom a {
+    background-color: #fff;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: #f4f4f4;
+}
+
+/* استایل‌های عمومی */
+.order-details-modal {
+    display: none;
+}
+
+.order-details-modal.active {
+    display: block;
+}
+
+/* حذف استایل‌های ایتالیک */
+.detail-item span {
+    font-style: normal;
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+    .status-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .status-item {
+        text-align: center;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .detail-item strong {
+        margin-bottom: 5px;
+        min-width: auto;
+    }
+    
+    .detail-item span {
+        text-align: right;
+    }
+}
+
+/* فیلدهای قابل ویرایش */
+.editable-field {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background: #ffffff;
+    color: #374151;
+}
+
+.editable-field:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.editable-field[type="url"] {
+    direction: ltr;
+    text-align: left;
+}
+
+/* textarea های ویرایش */
+textarea.editable-field {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* سلکت‌باکس‌های ویرایش */
+select.editable-field {
+    cursor: pointer;
+}
+
+/* استایل مودال در حالت ویرایش */
+.order-details-container[data-edit-mode="true"] .detail-item {
+    margin-bottom: 15px;
+}
+
+.order-details-container[data-edit-mode="true"] .detail-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* دکمه‌های فوتر مودال */
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    border-top: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.modal-footer .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-success {
+    background: #10b981;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #6b7280;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+}
+
+.btn-warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+}
+
+.btn-info {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-info:hover {
+    background: #2563eb;
+}
+
+/* حالت غیرفعال برای دکمه‌ها */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* انیمیشن برای تغییر از حالت نمایش به ویرایش */
+.detail-item {
+    transition: all 0.3s ease;
+}
+
+/* تمرکز بر فیلدهای اجباری */
+.editable-field[required] {
+    border-left: 4px solid #f59e0b;
+}
+
+.editable-field[required]:focus {
+    border-left-color: #10b981;
+}
+
+/* پیغام راهنما */
+.edit-mode-hint {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 20px;
+    color: #1e40af;
+    font-size: 14px;
+}
+
+.edit-mode-hint::before {
+    content: "✏️ ";
+    margin-left: 5px;
+}
+
+/* Responsive برای موبایل */
+@media (max-width: 768px) {
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .editable-field {
+        font-size: 16px; /* جلوگیری از زوم در iOS */
+    }
+}
+

@@ -1,0 +1,76 @@
+/* طراحی واضح و رنگی برای فرم */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+.wrap,
+.wrap *,
+.settings-tabs,
+.settings-tabs *,
+.tab-content,
+.tab-content *,
+.form-table,
+.form-table * {
+    font-family: 'Vazir', Tahoma, sans-serif !important;
+}
+
+.settings-tabs {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tab-nav {
+    display: flex;
+    background: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-button:hover {
+    background: #e7e7e7;
+}
+
+.tab-button.active {
+    background: white;
+    border-bottom-color: #2563eb;
+    color: #2563eb;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.gateway-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 6px;
+}
+
+.gateway-section h3 {
+    margin-top: 0;
+    color: #2563eb;
+}
+
+#products-management {
+    min-height: 400px;
+}
+
+.products-loading {
+    text-align: center;
+    padding: 50px;
+    color: #666;
+} 

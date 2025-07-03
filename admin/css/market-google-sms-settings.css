@@ -1,0 +1,779 @@
+/* وارد کردن فونت وزیر از فایل محلی */
+@font-face {
+    font-family: 'Vazir';
+    src: url('../../fonts/vazir/Vazir-Regular.eot');
+    src: url('../../fonts/vazir/Vazir-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/vazir/Vazir-Regular.woff2') format('woff2'),
+         url('../../fonts/vazir/Vazir-Regular.woff') format('woff'),
+         url('../../fonts/vazir/Vazir-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../../fonts/vazir/Vazir-Bold.eot');
+    src: url('../../fonts/vazir/Vazir-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/vazir/Vazir-Bold.woff2') format('woff2'),
+         url('../../fonts/vazir/Vazir-Bold.woff') format('woff'),
+         url('../../fonts/vazir/Vazir-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* اعمال فونت وزیر فقط روی متن‌ها، نه آیکون‌ها */
+.wrap,
+.wrap *,
+.market-google-sms-settings,
+.market-google-sms-settings * {
+    font-family: 'Vazir', Tahoma, sans-serif !important;
+}
+
+/* استثنا کردن آیکون‌ها از فونت وزیر */
+.market-google-sms-settings i[class*="fas"],
+.market-google-sms-settings i[class*="fa"],
+.market-google-sms-settings .fas,
+.market-google-sms-settings .fa,
+.market-google-sms-settings i.fas,
+.market-google-sms-settings i.fa {
+    font-family: 'Font Awesome 6 Free', 'FontAwesome' !important;
+    font-weight: 900 !important;
+}
+
+.market-google-sms-settings .far,
+.market-google-sms-settings i.far {
+    font-weight: 400 !important;
+}
+
+.market-google-sms-settings .fab,
+.market-google-sms-settings i.fab {
+    font-weight: 400 !important;
+}
+
+.market-google-sms-settings {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.sms-card {
+    background: white !important;
+    border-radius: 12px !important;
+    margin-bottom: 25px !important;
+    padding: 0 !important;
+    border: 2px solid #f3f4f6 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+.sms-card:hover {
+    border-color: #e5e7eb !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.sms-card-header {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px !important;
+    border-bottom: 2px solid #f3f4f6 !important;
+    background: #f9f9f9 !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.sms-card-icon {
+    margin-left: 15px;
+    color: #667eea !important;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sms-card-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #667eea !important;
+}
+
+.title-gray {
+    color: #6c757d !important;
+    font-weight: 400 !important;
+}
+
+.title-blue {
+    color: #667eea !important;
+    font-weight: 700 !important;
+}
+
+.sms-card-content {
+    display: flex;
+    padding: 25px 30px !important;
+    gap: 30px;
+}
+
+.sms-left-content {
+    flex: 2;
+}
+
+.sms-right-content {
+    flex: 1;
+    border-right: 2px solid #f3f4f6 !important;
+    padding-right: 30px;
+}
+
+.sms-form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.sms-form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sms-form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600 !important;
+    color: #333 !important;
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.sms-form-label.required::after {
+    content: ' *';
+    color: #d63384;
+}
+
+/* یکسان‌سازی کامل فیلدها با تنظیمات عمومی */
+.sms-form-input,
+.sms-send-input,
+.sms-event-input,
+.sms-event-textarea {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    border: 2px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+}
+
+.sms-form-input:focus,
+.sms-send-input:focus,
+.sms-event-input:focus,
+.sms-event-textarea:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    outline: none !important;
+}
+
+.sms-form-input:hover,
+.sms-send-input:hover,
+.sms-event-input:hover,
+.sms-event-textarea:hover {
+    border-color: #d1d5db !important;
+}
+
+/* سلکت باکس‌ها */
+select.sms-form-input,
+select.sms-send-input {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: left 12px center;
+    background-size: 12px;
+    padding-left: 35px;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.sms-event-textarea {
+    min-height: 130px !important;
+    resize: vertical !important;
+}
+
+.sms-connection-wrapper {
+    background: #f8f9fa !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+}
+
+/* استایل‌های وضعیت اتصال مطابق تصویر */
+.sms-connection-title {
+    color: #3b82f6 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+}
+
+.sms-status-section {
+    margin-bottom: 25px;
+}
+
+.sms-status-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-right: 4px solid transparent;
+}
+
+.sms-status-item:has(.connected) {
+    border-right-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.sms-status-item:has(.disconnected) {
+    border-right-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.sms-status-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+.sms-status-icon.connected {
+    background-color: #10b981;
+}
+
+.sms-status-icon.disconnected {
+    background-color: #ef4444;
+}
+
+.sms-status-text {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.provider-name {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.status-value.connected {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.status-value.disconnected {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.sms-count {
+    color: #10b981;
+    font-weight: 700;
+}
+
+.sms-test-section {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 20px;
+}
+
+.sms-test-title {
+    color: #3b82f6 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: 15px !important;
+    text-align: center !important;
+}
+
+/* تب‌های تست پیامک */
+.sms-test-tabs {
+    display: flex;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 15px;
+}
+
+.sms-test-tab {
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #6b7280;
+    transition: all 0.3s ease;
+}
+
+.sms-test-tab:hover {
+    color: #4f46e5;
+}
+
+.sms-test-tab.active {
+    color: #4f46e5;
+    border-bottom-color: #4f46e5;
+    font-weight: 600;
+}
+
+.sms-test-content {
+    display: none;
+    padding-top: 15px;
+}
+
+.sms-test-content.active {
+    display: block;
+}
+
+.sms-help-text {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* استایل‌های select با آیکون */
+.sms-select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.sms-form-input, .sms-send-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: white;
+    padding-left: 35px !important;
+}
+
+.select-arrow {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    font-size: 12px;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+    font-family: 'Font Awesome 6 Free', 'FontAwesome' !important;
+    font-weight: 900 !important;
+}
+
+/* حذف content از select-arrow چون آیکون در HTML تعریف شده */
+.select-arrow::before {
+    content: none;
+}
+
+.sms-select-wrapper:hover .select-arrow {
+    color: #667eea;
+}
+
+.sms-form-input:focus + .select-arrow,
+.sms-send-input:focus + .select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+    color: #667eea;
+}
+
+/* استایل‌های label با ستاره قرمز */
+.sms-form-label.required::after {
+    content: ' *';
+    color: #ef4444;
+    font-weight: bold;
+}
+
+/* متن الزامی بودن فیلدها */
+.sms-required-note {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* دکمه‌های تست - عرض کامل و سمت راست */
+.sms-send-button-row {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.sms-send-button {
+    flex: 0 0 auto;
+    min-width: 140px;
+}
+
+/* اصلاح آیکون‌های هدر */
+.sms-card-icon i {
+    font-size: 18px;
+    color: #667eea;
+}
+
+.sms-status-icon.fa-check-circle {
+    color: #00c48c !important;
+}
+
+.sms-status-icon.fa-times-circle {
+    color: #ff5c5c !important;
+}
+
+.sms-status-icon.fa-chart-bar {
+    color: #667eea !important;
+}
+
+.sms-status-text {
+    font-size: 14px;
+    color: #333;
+}
+
+.sms-status-number {
+    font-weight: bold;
+    color: #667eea;
+}
+
+.sms-send-form {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+    .sms-card-header {
+        padding: 15px 20px !important;
+    }
+    
+    .sms-card-content {
+        padding: 15px 20px !important;
+    }
+    
+    .sms-send-button-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .sms-send-button {
+        width: 100%;
+    }
+}
+
+.sms-send-button {
+    flex: 1;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    border: 2px solid #10b981 !important;
+    padding: 14px 28px !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.sms-send-button:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.sms-event-card {
+    padding: 25px 30px !important;
+}
+
+.sms-event-form-group.sms-event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.sms-event-item {
+    border: 2px solid #f3f4f6 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    background: #fafafa !important;
+    transition: all 0.3s ease !important;
+}
+
+.sms-event-item:hover {
+    border-color: #667eea !important;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1) !important;
+}
+
+.sms-event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.sms-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.sms-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.sms-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.sms-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .sms-toggle-slider {
+    background-color: #667eea;
+}
+
+input:checked + .sms-toggle-slider:before {
+    transform: translateX(26px);
+}
+
+.sms-event-label {
+    font-weight: 600 !important;
+    color: #333 !important;
+    font-size: 14px !important;
+}
+
+.sms-shortcodes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+/* دکمه کپی برای کال‌بک‌های پیش‌فرض */
+.sms-copy-btn {
+    background: #667eea !important;
+    color: white !important;
+    border: none !important;
+    padding: 6px 10px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 12px !important;
+    transition: all 0.3s ease !important;
+    margin-right: 10px !important;
+}
+
+.sms-copy-btn:hover {
+    background: #5a67d8 !important;
+    transform: scale(1.05) !important;
+}
+
+.sms-shortcode-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    background: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    margin-bottom: 10px !important;
+}
+
+.sms-shortcode-item:hover {
+    background: #e9ecef !important;
+    border-color: #667eea !important;
+}
+
+.sms-shortcode-item code {
+    background: #667eea !important;
+    color: white !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+.sms-shortcode-desc {
+    color: #666;
+    font-size: 13px;
+}
+
+.sms-submit-button {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    border: 2px solid #10b981 !important;
+    padding: 14px 28px !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.sms-submit-button:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.sms-form-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.sms-form-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .sms-form-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .sms-card-content {
+        flex-direction: column;
+    }
+    
+    .sms-right-content {
+        border-right: none;
+        border-top: 2px solid #f3f4f6;
+        padding-right: 0;
+        padding-top: 20px;
+    }
+    
+    .sms-event-form-group.sms-event-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sms-shortcodes-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sms-tooltip {
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+    color: #667eea;
+    cursor: help;
+}
+
+.sms-tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.sms-card {
+    animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sms-form-input:focus,
+.sms-send-input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+/* استایل فیلدهای پترن و خط خدماتی */
+.sms-pattern-field,
+.sms-service-field {
+    display: none;
+    margin-top: 10px;
+}
+
+.sms-pattern-field.active,
+.sms-service-field.active {
+    display: block;
+}
+
+/* استایل بخش بازنشانی تنظیمات */
+.sms-reset-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #e5e7eb;
+    text-align: center;
+}
+
+.sms-reset-button {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: white !important;
+    border: 2px solid #f59e0b !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.sms-reset-button:hover {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
