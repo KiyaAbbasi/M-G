@@ -1,8 +1,6 @@
 <?php
 namespace MarketGoogle\Core;
 
-use MarketGoogle\Database\Migrations;
-
 // جلوگیری از دسترسی مستقیم
 if (!defined('ABSPATH')) {
     exit;
@@ -21,8 +19,11 @@ class Activator {
      * متد اصلی فعال‌سازی
      */
     public static function activate() {
+        // فایل Migrations را به صورت دستی بارگذاری می‌کنیم تا در دسترس باشد
+        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Database/Migrations.php';
+
         // اجرای مایگریشن‌ها برای ایجاد یا به‌روزرسانی جداول
-        Migrations::run();
+        \MarketGoogle\Database\Migrations::run();
 
         // تنظیم گزینه‌های پیش‌فرض
         self::set_default_options();
