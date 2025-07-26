@@ -1,6 +1,16 @@
 <?php
 namespace MarketGoogle\Core;
 
+use MarketGoogle\Admin\Dashboard;
+use MarketGoogle\Admin\Assets as AdminAssets;
+use MarketGoogle\Public\Shortcodes;
+use MarketGoogle\Public\Assets as PublicAssets;
+use MarketGoogle\Gateway\Payment;
+use MarketGoogle\Services\Sms\SmsService;
+use MarketGoogle\Ajax\AdminAjax;
+use MarketGoogle\Ajax\PublicAjax;
+use MarketGoogle\Database\Migrations;
+
 // جلوگیری از دسترسی مستقیم
 if (!defined('ABSPATH')) {
     exit;
@@ -15,41 +25,8 @@ if (!defined('ABSPATH')) {
  */
 final class Plugin {
 
-    /**
-     * @var Plugin
-     */
     private static $instance = null;
 
-    /**
-     * @var \MarketGoogle\Admin\Dashboard
-     */
-    public $admin;
-
-    /**
-     * @var \MarketGoogle\Public\Shortcodes
-     */
-    public $public;
-
-    /**
-     * @var \MarketGoogle\Gateway\Payment
-     */
-    public $payment;
-
-    /**
-     * @var \MarketGoogle\Services\Sms\SmsService
-     */
-    public $sms;
-
-    /**
-     * @var \MarketGoogle\Services\TrackingService
-     */
-    public $tracking;
-
-    /**
-     * برگرداندن یک نمونه از کلاس
-     *
-     * @return Plugin
-     */
     public static function instance() {
         if (is_null(self::$instance)) {
             self::$instance = new self();
@@ -57,9 +34,6 @@ final class Plugin {
         return self::$instance;
     }
 
-    /**
-     * سازنده کلاس
-     */
     private function __construct() {
         $this->define_constants();
         $this->includes();
@@ -67,62 +41,48 @@ final class Plugin {
         $this->init_classes();
     }
 
-    /**
-     * تعریف ثابت‌ها
-     */
     private function define_constants() {
         define('MARKET_GOOGLE_LOCATION_SRC_PATH', MARKET_GOOGLE_LOCATION_PATH . 'src/');
         define('MARKET_GOOGLE_LOCATION_ASSETS_URL', MARKET_GOOGLE_LOCATION_URL . 'assets/');
     }
 
-    /**
-     * بارگذاری فایل‌های مورد نیاز
-     */
     private function includes() {
-        // فایل‌های این بخش به تدریج با Autoloader جایگزین خواهند شد
-        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Utils/Helper.php';
+        // در آینده این بخش با autoloader جایگزین می‌شود
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Core/Activator.php';
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Core/Deactivator.php';
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Database/Migrations.php';
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Admin/Dashboard.php';
+        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Admin/OrdersList.php';
+        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Admin/Settings.php';
+        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Admin/Assets.php';
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Public/Shortcodes.php';
+        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Public/Assets.php';
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Gateway/Payment.php';
+        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Gateway/Bmi.php';
+        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Gateway/Zarinpal.php';
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Services/Sms/SmsService.php';
-        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Services/TrackingService.php';
+        require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Services/Sms/Melipayamak.php';
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Ajax/AdminAjax.php';
         require_once MARKET_GOOGLE_LOCATION_SRC_PATH . 'Ajax/PublicAjax.php';
     }
 
-    /**
-     * راه‌اندازی هوک‌های وردپرس
-     */
     private function init_hooks() {
-        // هوک‌های فعال‌سازی و غیرفعال‌سازی
         register_activation_hook(MARKET_GOOGLE_LOCATION_FILE, [__NAMESPACE__ . '\Activator', 'activate']);
         register_deactivation_hook(MARKET_GOOGLE_LOCATION_FILE, [__NAMESPACE__ . '\Deactivator', 'deactivate']);
-
-        // بارگذاری فایل ترجمه
         add_action('plugins_loaded', [$this, 'load_textdomain']);
     }
 
-    /**
-     * راه‌اندازی کلاس‌های اصلی
-     */
     private function init_classes() {
-        $this->admin = new \MarketGoogle\Admin\Dashboard();
-        $this->public = new \MarketGoogle\Public\Shortcodes();
-        $this->payment = new \MarketGoogle\Gateway\Payment();
-        $this->sms = new \MarketGoogle\Services\Sms\SmsService();
-        $this->tracking = new \MarketGoogle\Services\TrackingService();
-
-        // راه‌اندازی کلاس‌های Ajax
-        new \MarketGoogle\Ajax\AdminAjax();
-        new \MarketGoogle\Ajax\PublicAjax();
+        new Dashboard();
+        new AdminAssets();
+        new Shortcodes();
+        new PublicAssets();
+        new Payment();
+        new SmsService();
+        new AdminAjax();
+        new PublicAjax();
     }
 
-    /**
-     * بارگذاری فایل ترجمه
-     */
     public function load_textdomain() {
         load_plugin_textdomain(
             'market-google-location',

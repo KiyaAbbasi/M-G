@@ -37,17 +37,14 @@ class Shortcodes {
      */
     public function render_location_form($atts) {
         // پارامترهای پیش‌فرض شورت‌کد
-        $atts = shortcode_atts([
+        $args = shortcode_atts([
             'height' => '500',
-            'theme' => 'default',
         ], $atts);
 
-        // در آینده، این بخش از یک فایل template برای نمایش محتوا استفاده خواهد کرد
         ob_start();
 
-        echo "<h2>فرم ثبت موقعیت مکانی</h2>";
-        echo "<p>این فرم به زودی با ظاهر جدید و امکانات کامل در اینجا نمایش داده خواهد شد.</p>";
-        echo "<div id='market-google-map' style='height: " . esc_attr($atts['height']) . "px; background: #eee;'></div>";
+        // بارگذاری فایل قالب و ارسال پارامترها به آن
+        include_once MARKET_GOOGLE_LOCATION_PATH . 'templates/public/location-form.php';
 
         return ob_get_clean();
     }
